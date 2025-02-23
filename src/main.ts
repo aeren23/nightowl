@@ -141,21 +141,23 @@ function setSwitcherIcon() {
 }
 
 function initializeSwitcher() {
+    const container = document.getElementById("themeContainer"); // Target div
+    if (!container) return;
+
     const switcher = document.createElement('div')
     console.log(window.innerWidth)
     switcher.id = 'nightowl-switcher-default'
-    switcher.style.position = 'fixed'
-    switcher.style.left = 'calc(100vw - 100px)'
-    switcher.style.top = 'calc(10px)'
-    switcher.style.width = '50px'
-    switcher.style.height = '50px'
-    switcher.style.borderRadius = '50%'
-    switcher.style.backgroundColor =
-        toggleButtonMode === 'newState' ? 'black' : 'white'
-    switcher.style.display = 'flex'
-    switcher.style.justifyContent = 'center'
-    switcher.style.alignItems = 'center'
-    switcher.style.cursor = 'pointer'
+    switcher.style.width = "50px"
+    switcher.style.height = "50px"
+    switcher.style.borderRadius = "50%"
+    switcher.style.backgroundColor = toggleButtonMode === "newState" ? "black" : "white"
+    switcher.style.display = "flex"
+    switcher.style.justifyContent = "center"
+    switcher.style.alignItems = "center"
+    switcher.style.cursor = "pointer"
+    switcher.style.boxShadow = "0 0 10px rgba(0,0,0,0.2)"
+    switcher.style.transition = "all 0.3s ease-in-out"
+    switcher.style.overflow = "hidden";
     switcher.style.zIndex = '9999'
     switcher.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)'
     switcher.style.transition = 'all 0.3s ease-in-out'
@@ -167,7 +169,7 @@ function initializeSwitcher() {
         storeModeInLocalStorage()
     })
 
-    document.body.appendChild(switcher)
+    container.appendChild(switcher)
     setSwitcherIcon()
 }
 
